@@ -1,1 +1,3 @@
-https://github.com/Nagrajnagas/AI-StudyBuddy
+venv/
+.env
+__pycache__/
