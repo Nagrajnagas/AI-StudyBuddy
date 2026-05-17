@@ -11,7 +11,7 @@ load_dotenv()
 genai.configure(
     api_key=os.getenv("GOOGLE_API_KEY")
 )
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-2.0-flash")
 embedding_model = SentenceTransformer(
     'all-MiniLM-L6-v2'
 )
@@ -122,7 +122,7 @@ if uploaded_file:
                 text += extracted_text
                 
         # Limit token usage
-        text = text[:5000]
+        text = text[:2500]
     st.success("✅ PDF Uploaded Successfully!")
     
     # METRICS
@@ -165,7 +165,7 @@ if uploaded_file:
                 st.success("✅ Summary Generated!")
                 st.markdown(response.text)
             except Exception as e:
-                st.error(f"Error: {e}")
+                st.error("⚠️ API quota exceeded. Please wait a few seconds and try again.")
     # QUIZ TAB
     with tab2:
         st.subheader("🧠 Generate Quiz")
